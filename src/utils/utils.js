@@ -27,17 +27,19 @@ const questions = [
 ];
 
 const keywords = {
-    Fire: "fire",
-    Water: "water",
-    Earth: "earth",
-    Air: "air",
+    Fire: "Fire",
+    Water: "Water",
+    Earth: "Earth",
+    Air: "Air",
 };
 
 const mapToElements = (questions, keywords) => {
     const mapped = {};
+    // Get keywords
+    const keywordArray = Object.keys(keywords);
     questions.forEach(question => {
-      question.options.forEach(option => {
-        mapped[option] = keywords[option];
+      question.options.forEach((option, index) => {
+        mapped[option] = keywords[keywordArray[index]];
       })
     })
     return mapped;

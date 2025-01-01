@@ -14,10 +14,10 @@ export default function Results({ element, dog }) {
             <div className="artwork">
             <h2>Dog Information</h2>
             <img src={ dog.message } alt={ dog.name } />
-            <p>{ dog.name }</p>
+            <p>Breed: { dog.name }</p>
             </div>
         ) : (
-            <p>No dog image found.</p>
+            <p>No dog data found.</p>
         )}
         </div>
     );

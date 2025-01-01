@@ -5,9 +5,9 @@ export const UserContext = createContext();
 
 // the UserProvider component
 export default function UserProvider({ children }) {
-  const [name, setName] = useState(null);
+  const [name, setName] = useState("");
 
   return <UserContext.Provider value={{ name, setName }}>
-    {children}
+    { children } 
   </UserContext.Provider>;
 }

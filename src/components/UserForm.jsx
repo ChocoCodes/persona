@@ -3,7 +3,7 @@ import { UserContext } from './UserContext';
 
 export default function UserForm() {
   const [inputName, setInputName] = useState('');
-  const { setName } = useContext(UserContext);
+  const { name, setName } = useContext(UserContext);
 
   const handleNameChange = (e) => {
     setInputName(e.target.value);
@@ -21,7 +21,7 @@ export default function UserForm() {
     <>
         <form onSubmit={handleSubmit}>
             <label htmlFor="name">Name:</label>
-            <input type="text" id="name" onChange={handleNameChange} required/>
+            <input type="text" id="name" onChange={ handleNameChange } autocomplete="off" required/>
             <button type="submit">Start Quiz</button>
         </form>
     </>
