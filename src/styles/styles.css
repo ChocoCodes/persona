@@ -3,11 +3,11 @@ html {
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
+  text-align: center;
   align-items: center;
   justify-content: center;
   background-color: #f0f0f0;
   min-height: 100vh;
-  text-align: center;
   gap: 10px;
 }
 
@@ -103,4 +103,20 @@ button:hover {
   cursor: pointer;
   color: black;
   margin-top: 10px;
+}
+
+footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+footer a {
+  text-decoration: none;
+  color: black;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }

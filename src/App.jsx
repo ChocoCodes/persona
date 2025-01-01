@@ -6,6 +6,7 @@ import Header from './components/Header';
 import UserForm from './components/UserForm';
 import Question from './components/Question';
 import Results from './components/Results';
+import Footer from './components/Footer';
 import './styles/styles.css';
 
 function App() {
@@ -78,6 +79,7 @@ function App() {
               )
             }/>
           </Routes>
+        <Footer/>
       </UserProvider>
     </>
   );
