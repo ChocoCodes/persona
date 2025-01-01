@@ -1,6 +1,6 @@
 import { questions, keywords, mapToElements, format } from './utils/utils';
 import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import UserProvider from './components/UserContext';
 import Header from './components/Header';
 import UserForm from './components/UserForm';
@@ -15,9 +15,9 @@ function App() {
   const [element, setElement] = useState("");
   const [dog, setDogInfo] = useState(null);
 
+  const navigate = useNavigate();
   const elements = mapToElements(questions, keywords);
-  console.log(elements);
-  
+
   const handleAnswer = answer => {
     setAnswers([...answers, answer]);
     setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -48,6 +48,14 @@ function App() {
     }
   }
 
+  const resetQuiz = () => {
+      setCurrentQuestionIndex(0);
+      setAnswers([]);
+      setElement("");
+      setDogInfo(null);
+      navigate("/");
+  };
+
   useEffect(() => {
     if (currentQuestionIndex === questions.length) {
       const selectedElement = determineElement(answers);
@@ -61,14 +69,14 @@ function App() {
       <UserProvider value={{ user: userName, setName: setUserName }}>
         <Header/>
         <Routes>
-            <Route path="/" element={ <UserForm onSubmit={ handleUserFormSubmit }/> } />
+            <Route path="/" element={ <UserForm onSubmit={ handleUserFormSubmit }/> }/>
             <Route path="/quiz" element={
               currentQuestionIndex < questions.length ? (
-                <Question question={ questions[currentQuestionIndex].question } options={ questions[currentQuestionIndex].options } onAnswer={ handleAnswer } />
+                <Question question={ questions[currentQuestionIndex].question } options={ questions[currentQuestionIndex].options } onAnswer={ handleAnswer }/>
               ) : (
-                <Results element={ element } dog={ dog } />
+                <Results element={ element } dog={ dog } onRetake={ resetQuiz }/>
               )
-            } />
+            }/>
           </Routes>
       </UserProvider>
     </>

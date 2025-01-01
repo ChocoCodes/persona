@@ -19,9 +19,9 @@ export default function UserForm() {
 
   return (
     <>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={ handleSubmit }>
             <label htmlFor="name">Name:</label>
-            <input type="text" id="name" onChange={ handleNameChange } autocomplete="off" required/>
+            <input type="text" id="name" onChange={ handleNameChange } autoComplete="off" required/>
             <button type="submit">Start Quiz</button>
         </form>
     </>
